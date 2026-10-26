@@ -23,7 +23,6 @@ import java.util.List;
 import org.apache.impala.thrift.TPrimitiveType;
 
 public enum PrimitiveType {
-  INVALID_TYPE("INVALID_TYPE", -1, TPrimitiveType.INVALID_TYPE),
   // NULL_TYPE - used only in LiteralPredicate and NullLiteral to make NULLs compatible
   // with all other types.
   NULL_TYPE("NULL_TYPE", 1, TPrimitiveType.NULL_TYPE),
@@ -55,7 +54,9 @@ public enum PrimitiveType {
   // internally for intermediate results of builtin aggregate functions. Not exposed
   // in SQL in any way.
   FIXED_UDA_INTERMEDIATE("FIXED_UDA_INTERMEDIATE", -1,
-      TPrimitiveType.FIXED_UDA_INTERMEDIATE);
+      TPrimitiveType.FIXED_UDA_INTERMEDIATE),
+  INVALID_TYPE("INVALID_TYPE", -1, TPrimitiveType.INVALID_TYPE),
+      ;
 
   private final String description_;
   private final int slotSize_;  // size of tuple slot for this type
